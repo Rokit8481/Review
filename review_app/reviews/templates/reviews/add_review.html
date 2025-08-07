@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Додавання відгуку {% endblock %}
+
+{% block content %}
+
+    <a href="{% url 'review_list' %}" class="btn btn-secondary mb-3">Назад до відгуків</a>
+    <div class="card">
+      <div class="card-body">
+        <h5>Залишити відгук: <strong>{{ product.name }}</strong></h5>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Опублікувати</button>
+        </form>
+      </div>
+    </div>
+{% endblock %}
